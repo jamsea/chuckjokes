@@ -8,3 +8,10 @@ get '/sms-quickstart' do
 					  end
 		  twiml.text
 end
+
+get '/' do
+	  twiml = Twilio::TwiML::Response.new do |r|
+			    r.Message "Hey Monkey. Thanks for the message!"
+					  end
+		  twiml.text
+end
