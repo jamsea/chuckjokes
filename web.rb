@@ -1,17 +1,13 @@
 require 'rubygems'
 require 'twilio-ruby'
 require 'sinatra'
- 
-get '/sms-quickstart' do
-	  twiml = Twilio::TwiML::Response.new do |r|
-			    r.Message "Hey Monkey. Thanks for the message!"
-					  end
-		  twiml.text
-end
+require 'json'
+require 'HTTParty'
 
 get '/' do
-	  twiml = Twilio::TwiML::Response.new do |r|
-			    r.Message "Hey Monkey. Thanks for the message!"
-					  end
-		  twiml.text
+	response = HTTParty.get('http://api.icndb.com/jokes/random')
+	twiml = Twilio::TwiML::Response.new do |r|
+		r.Message  response['value']['joke']
+	end
+	twiml.text
 end
