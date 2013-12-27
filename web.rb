@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'twilio-ruby'
 require 'sinatra'
-require 'json'
 require 'HTTParty'
 
 get '/' do
