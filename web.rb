@@ -1,7 +1,7 @@
 require 'rubygems'
+require 'httparty'
 require 'twilio-ruby'
 require 'sinatra'
-require 'HTTParty'
 
 get '/' do
 	response = HTTParty.get('http://api.icndb.com/jokes/random')
